@@ -17,8 +17,9 @@ public class EnemyController : MonoBehaviour
     private Vector3 offset = new Vector3(0, 1.5f, -1f);
     private Vector3 playerPos;
 
-    public bool isDead = false;
+    public bool isDead = false; // Ez uj
 
+    // Ez uj
     private void Awake()
     {
         Health = 50f;
@@ -26,14 +27,17 @@ public class EnemyController : MonoBehaviour
         MovementSpeed = 5f;
         isDead = false;
     }
+
     private void Start()
     {
         anim = GetComponent<Animator>();
         player = FindObjectOfType<PlayerController>();
         playerPos = player.transform.position - offset;
     }
+    
     private void Update()
     {
+        // Ez uj
         transform.position += transform.forward * MovementSpeed * Time.deltaTime;
         anim.SetBool("move", true);
 
@@ -49,7 +53,7 @@ public class EnemyController : MonoBehaviour
 
         if (Health <= 0)
         {
-            isDead = true;
+            isDead = true; // Ez uj
             MonsterDied();
         }
     }
@@ -64,8 +68,8 @@ public class EnemyController : MonoBehaviour
     private void MonsterDied()
     {
         GetComponentInChildren<MeshCollider>().enabled = false;
-        anim.SetTrigger("dead");
-        Destroy(gameObject, 1);
+        anim.SetTrigger("dead"); // Ez uj
+        Destroy(gameObject, 1); // Ez uj
     }
 
     private bool PlayerNearby(float value)
